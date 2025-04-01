@@ -34,7 +34,7 @@ router.get('/mockingusers', (req, res) => {
 
 router.post('/generateData', async (req, res) => {
     try {
-        // Validate request body
+        
         if (!req.body || typeof req.body.users === 'undefined' || typeof req.body.pets === 'undefined') {
             return res.status(400).json({ 
                 error: 'Se requieren los parámetros users y pets en el body' 
@@ -43,14 +43,14 @@ router.post('/generateData', async (req, res) => {
 
         const { users, pets } = req.body;
 
-        // Validate parameters
+        
         if (!Number.isInteger(users) || !Number.isInteger(pets) || users < 0 || pets < 0) {
             return res.status(400).json({ 
                 error: 'Los parámetros users y pets deben ser números enteros positivos' 
             });
         }
 
-        // Generate and save data
+        
         const mockUsers = generateMockUsers(users);
         const mockPets = generateMockPets(pets);
 
